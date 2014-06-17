@@ -57,24 +57,18 @@
 		},
 
 		_updateLiquidColour: function() {
-			var newColour = this.getLiquidColour();
+			var liquidColour = this.getLiquidColour();
 
-			var oldStyle = this.neckLiquid.attr("style");
-			this.neckLiquid.attr("style", this._replaceFill( oldStyle, newColour ) );
-
-			oldStyle = this.liquidTop.attr("style");
-			this.liquidTop.attr("style", this._replaceFill( oldStyle, 
-				this._blendColors(newColour,"#000000",0.1) ) );
-
-			oldStyle = this.bowlLiquid.attr("style");
-			this.bowlLiquid.attr("style", this._replaceFill( oldStyle, newColour ) );
-
-			oldStyle = this.bowlGlass.attr("style");
-			this.bowlGlass.attr("style", this._replaceOption( "stroke", oldStyle, newColour ) );
-
-			oldStyle = this.neckGlass.attr("style");
-			this.neckGlass.attr("style", this._replaceOption( "stroke", oldStyle, 
-				this._blendColors(newColour, '#000000', 0.2 ) ) );
+			var variables = [];
+			variables["colour"] = liquidColour;
+			variables["darkColour"] = this._blendColors( liquidColour, "#000000", 0.1 );
+			variables["veryDarkColour"] = this._blendColors( liquidColour, '#000000', 0.2 );
+		
+			this._formatDataAttribute( this.neckLiquid, "style", variables );
+			this._formatDataAttribute( this.liquidTop, "style", variables );
+			this._formatDataAttribute( this.bowlLiquid, "style", variables );
+			this._formatDataAttribute( this.bowlGlass, "style", variables );
+			this._formatDataAttribute( this.neckGlass, "style", variables );
 		},
 
 		_setupSVGLinks: function() {
@@ -89,13 +83,13 @@
 			this.svgHeight = 1052;
 			this.leftOffset = 300;
 			this.topOffset = 150;
-			this.liquidTop = $('#layer8 path');
-			this.neckLiquid = $('#layer5 path');
-			this.bowlLiquid = $('#layer4 path');
-			this.topText = $('#text4408');
-			this.bottomText = $('#text4404');
-			this.bowlGlass = $('#path3022');
-			this.neckGlass = $('#rect2987-7');
+			this.liquidTop = $('#LiquidTop path');
+			this.neckLiquid = $('#NeckLiquid path');
+			this.bowlLiquid = $('#BowlLiquid path');
+			this.topText = $('#topText');
+			this.bottomText = $('#bottomText');
+			this.bowlGlass = $('#BowlGlass');
+			this.neckGlass = $('#NeckGlass');
 		},
 
 		_create: function() {
@@ -145,19 +139,33 @@
 				this._updateLiquidColour();
 			}
 
+
+			var variables = [];
+			variables["liquidY"] = this.liquidBottomY - value * (this.liquidBottomY - this.liquidTopY) / (this.options.maxValue - this.options.minValue);
+			variables["neckPosition"] = value * (this.neckBottomY - this.neckTopY) / (this.options.maxValue - this.options.minValue) + this.neckMinSize;
+			variables["boxPosition"] = this.neckBottomY - variables["neckPosition"];
+
 			// Move the oval representing the top of the liquid
-			var y = this.liquidBottomY - value * (this.liquidBottomY - this.liquidTopY) / (this.options.maxValue - this.options.minValue);
-			this.liquidTop[0].setAttribute("transform", "matrix(1.1419806,0,0,0.70069527,-56.601976,"+y+")" );
+			this._formatDataAttribute( this.liquidTop, "transform", variables );
 
 			// Stretch the box representing the liquid in the neck
-			y = value * (this.neckBottomY - this.neckTopY) / (this.options.maxValue - this.options.minValue) + this.neckMinSize;
-			yPos = this.neckBottomY - y;
-			this.neckLiquid[0].setAttribute("d", "m 393.28125,"+yPos+" c -4.19808,0 -7.5625,3.36442 -7.5625,7.5625 l 0,"+y+" c 10.74167,-4.84591 22.63806,-7.53125 35.1875,-7.53125 11.83467,0 23.12028,2.41262 33.375,6.75 l 0,-"+y+" c 0,-4.19808 -3.36442,-7.5625 -7.5625,-7.5625 l -53.4375,0 z" );
+			this._formatDataAttribute( this.neckLiquid, "d", variables );
+			// y = value * (this.neckBottomY - this.neckTopY) / (this.options.maxValue - this.options.minValue) + this.neckMinSize;
+			// yPos = this.neckBottomY - y;
+			// this.neckLiquid[0].setAttribute("d", "m 393.28125,"+yPos+" c -4.19808,0 -7.5625,3.36442 -7.5625,7.5625 l 0,"+y+" c 10.74167,-4.84591 22.63806,-7.53125 35.1875,-7.53125 11.83467,0 23.12028,2.41262 33.375,6.75 l 0,-"+y+" c 0,-4.19808 -3.36442,-7.5625 -7.5625,-7.5625 l -53.4375,0 z" );
 
 			// Call the valueChanged callback.
 			if( this.options.valueChanged ) {
 				this.options.valueChanged( value );
 			}
+		},
+
+		_formatDataAttribute: function( object, attribute, variables ) {
+			var formatString = $(object).attr("data-"+attribute);
+			for( v in variables ) {
+				formatString = formatString.replace( new RegExp("%%"+v+"%%", "g"), variables[v] );
+			}
+			$(object).attr(attribute,formatString);
 		},
 
 		_replaceFill: function( oldStyle, newFill ) {

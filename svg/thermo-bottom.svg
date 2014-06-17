@@ -386,30 +386,31 @@
      style="display:inline" />
   <g
      inkscape:groupmode="layer"
-     id="Neck_Liquid"
+     id="NeckLiquid"
      inkscape:label="Neck"
      style="opacity:0.75;display:inline">
     <path
        data-style="fill:%%colour%%;fill-rule:evenodd;stroke:none;display:inline"
-       d="m 393.28125,543.58391 c -4.19808,0 -7.5625,0.28522 -7.5625,0.64112 l 0,30.68122 c 10.74167,-0.41082 22.63806,-0.63847 35.1875,-0.63847 11.83467,0 23.12028,0.20453 33.375,0.57224 l 0,-30.61499 c 0,-0.3559 -3.36442,-0.64112 -7.5625,-0.64112 l -53.4375,0 z"
+       data-d="m 393.28125,%%boxPosition%% c -4.19808,0 -7.5625,0.28522 -7.5625,0.64112 l 0,%%neckPosition%% c 10.74167,-0.41082 22.63806,-0.63847 35.1875,-0.63847 11.83467,0 23.12028,0.20453 33.375,0.57224 l 0,-%%neckPosition%% c 0,-0.3559 -3.36442,-0.64112 -7.5625,-0.64112 l -53.4375,0 z"
        id="rect2987"
        inkscape:connector-curvature="0" />
   </g>
   <g
      inkscape:groupmode="layer"
-     id="layer8"
+     id="LiquidTop"
      inkscape:label="Liquid Top"
      style="display:inline">
     <path
        sodipodi:type="arc"
-       style="fill:#f40000;fill-opacity:1;stroke:none"
+       data-style="fill:%%darkColour%%;fill-opacity:1;stroke:none"	
+       data-transform="matrix(1.1419806,0,0,0.70069527,-56.601976,%%liquidY%%)" 
        id="path4041"
        sodipodi:cx="417.37985"
        sodipodi:cy="286.68933"
        sodipodi:rx="30.493505"
        sodipodi:ry="14.770291"
        d="m447.87336,286.68933 a 30.493505,14.770291 0 1 1 -60.98701,0 30.493505,14.770291 0 1 1 60.98701,0 z"
-       transform="matrix(1.1419806,0,0,0.70069527,-56.601976,346.69947)" />
+    />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -431,9 +432,9 @@
      inkscape:label="Neck Wash Reflection"
      style="display:inline">
     <path
-       style="opacity:0.35864982;fill:url(#linearGradient3858);fill-opacity:1;fill-rule:evenodd;stroke:#d80000;stroke-width:6;stroke-miterlimit:4;stroke-opacity:0.54807691;stroke-dasharray:none;display:inline"
+       data-style="opacity:0.35864982;fill:url(#linearGradient3858);fill-opacity:1;fill-rule:evenodd;stroke:%%veryDarkColour%%;stroke-width:6;stroke-miterlimit:4;stroke-opacity:0.54807691;stroke-dasharray:none;display:inline"
        d="m 419.71875,161.59375 c -18.80415,0 -33.9375,15.13335 -33.9375,33.9375 l 0,380.0625 c 10.62068,-4.71542 22.38072,-7.34375 34.75,-7.34375 12.00458,0 23.44036,2.48148 33.8125,6.9375 l 0,-379.65625 c 0,-18.80415 -15.13335,-33.9375 -33.9375,-33.9375 l -0.6875,0 z"
-       id="rect2987-7"
+       id="NeckGlass"
        inkscape:connector-curvature="0" />
   </g>
   <g
@@ -452,12 +453,12 @@
   </g>
   <g
      inkscape:groupmode="layer"
-     id="layer4"
+     id="BowlLiquid"
      inkscape:label="Bowl"
      style="opacity:0.75;display:inline">
     <path
        sodipodi:type="arc"
-       style="fill:#ff0000;fill-rule:evenodd;stroke:none"
+       data-style="fill:%%colour%%;fill-rule:evenodd;stroke:none"
        id="path2985"
        sodipodi:cx="420"
        sodipodi:cy="653.79077"
@@ -498,8 +499,8 @@
        transform="matrix(0.99993476,0,0,0.99199182,6.5694005,-4.0854828)" />
     <path
        sodipodi:type="arc"
-       style="opacity:0.42194094;fill:url(#radialGradient3860);fill-opacity:1;stroke:#ff0000;stroke-width:6;stroke-miterlimit:4;stroke-dasharray:none;display:inline"
-       id="path3022"
+       data-style="opacity:0.42194094;fill:url(#radialGradient3860);fill-opacity:1;stroke:%%colour%%;stroke-width:6;stroke-miterlimit:4;stroke-dasharray:none;display:inline"
+       id="BowlGlass"
        sodipodi:cx="413.04016"
        sodipodi:cy="663.88116"
        sodipodi:rx="85.957001"
@@ -685,7 +686,7 @@
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="574.37592"
        y="562.16962"
-       id="text4404"
+       id="BottomText"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4406"
@@ -696,7 +697,7 @@
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="578.41888"
        y="233.08215"
-       id="text4408"
+       id="TopText"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4410"

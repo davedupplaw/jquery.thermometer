@@ -1,12 +1,14 @@
 {
   "name": "jquery-thermometer",
   "version": "1.0.0",
-  "main": [ "./js/jquery.thermometer.js" ],
+  "main": [ "./js/jquery.thermometer.js", "./svg/thermo-bottom.svg" ],
   "ignore": 
   [
     "packages",
     "images",
-    "index.*"
+    "index.*",
+    "README.md",
+    ".gitignore"
   ],
   "dependencies": { "jquery": "latest" }
 }
