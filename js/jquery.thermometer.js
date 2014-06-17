@@ -150,9 +150,6 @@
 
 			// Stretch the box representing the liquid in the neck
 			this._formatDataAttribute( this.neckLiquid, "d", variables );
-			// y = value * (this.neckBottomY - this.neckTopY) / (this.options.maxValue - this.options.minValue) + this.neckMinSize;
-			// yPos = this.neckBottomY - y;
-			// this.neckLiquid[0].setAttribute("d", "m 393.28125,"+yPos+" c -4.19808,0 -7.5625,3.36442 -7.5625,7.5625 l 0,"+y+" c 10.74167,-4.84591 22.63806,-7.53125 35.1875,-7.53125 11.83467,0 23.12028,2.41262 33.375,6.75 l 0,-"+y+" c 0,-4.19808 -3.36442,-7.5625 -7.5625,-7.5625 l -53.4375,0 z" );
 
 			// Call the valueChanged callback.
 			if( this.options.valueChanged ) {
@@ -166,20 +163,6 @@
 				formatString = formatString.replace( new RegExp("%%"+v+"%%", "g"), variables[v] );
 			}
 			$(object).attr(attribute,formatString);
-		},
-
-		_replaceFill: function( oldStyle, newFill ) {
-			return this._replaceOption("fill", oldStyle, newFill );
-		},
-
-		_replaceStroke: function( oldStyle, newStroke ) {
-			return this._replaceOption("stroke", oldStyle, newStroke );
-		},
-
-		_replaceOption: function( optionName, oldStyle, newOption ) {
-			return oldStyle.replace(
-				new RegExp(optionName+":#[a-z0-9]{6}", "i"), 
-				optionName+":"+newOption );
 		},
 
 		// http://stackoverflow.com/questions/5560248/programmatically-lighten-or-darken-a-hex-color-or-rgb-and-blend-colors
