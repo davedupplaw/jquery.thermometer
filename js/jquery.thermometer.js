@@ -101,7 +101,13 @@
 			} );
 		},
 		
-		_setupSVGLinks: function() {
+		_setupSVGLinks: function(svg) {
+			// Replace all ids in the SVG with fixtureId_id
+			var id = this.fixtureId;
+			svg.find('g[id], g [id]').each( function(indx,obj) {
+				$(obj).attr('id', id + "_" + $(obj).attr('id') );
+			});
+			
 			// This is all a bit magic, but these numbers come
 			// from the SVG itself and so this will only work with
 			// a specific SVG file.
@@ -113,14 +119,14 @@
 			this.svgHeight = 1052;
 			this.leftOffset = 300;
 			this.topOffset = 150;
-			this.liquidTop = $('#LiquidTop path');
-			this.neckLiquid = $('#NeckLiquid path');
-			this.bowlLiquid = $('#BowlLiquid path');
-			this.topText = $('#TopText');
-			this.bottomText = $('#BottomText');
-			this.bowlGlass = $('#BowlGlass');
-			this.neckGlass = $('#NeckGlass');
-			this.ticks = $('#Ticks');
+			this.liquidTop = $('#'+id+'_LiquidTop path');
+			this.neckLiquid = $('#'+id+'_NeckLiquid path');
+			this.bowlLiquid = $('#'+id+'_BowlLiquid path');
+			this.topText = $('#'+id+'_TopText');
+			this.bottomText = $('#'+id+'_BottomText');
+			this.bowlGlass = $('#'+id+'_BowlGlass');
+			this.neckGlass = $('#'+id+'_NeckGlass');
+			this.ticks = $('#'+id+'_Ticks');
 		},
 
 		_create: function() {
@@ -128,12 +134,13 @@
 			var div = $('<div/>');
 			this.div = div;
 			this.element.append( div );
+			this.fixtureId = this.element.attr('id');
 
 			div.load( this.options.pathToSVG, null, function() {
-				self._setupSVGLinks();
-
 				// Scale the SVG to the options provided.
 				var svg = $(this).find("svg");
+				self._setupSVGLinks(svg);
+				
 				svg[0].setAttribute( "preserveAspectRatio", "xMinYMin meet" );
 				svg[0].setAttribute( "viewBox", self.leftOffset+" "+self.topOffset+" 744 600" );
 
