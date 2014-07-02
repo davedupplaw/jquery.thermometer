@@ -1,4 +1,4 @@
-
+/* global jQuery */
 (function($) {
 
 	var Thermometer = {
@@ -20,17 +20,31 @@
 		},
 
 		/**
+		 * Set the text colour
+		 */
+		setTextColour: function( newColour ) {
+			this._updateTextColour( newColour );
+		},
+		
+		/**
+		 * Set the tick colour
+		 */
+		setTickColour: function( newColour ) {
+			this._updateTickColour( newColour );
+		},
+		
+		/**
 		 * Set the text at the top of the scale
 		 */
 		setTopText: function( newText ) {
-			this.topText.text(newText);
+			this.topText.find('tspan').text(newText);
 		},
 
 		/**
 		 * Set the text at the bottom of the scale
 		 */
 		setBottomText: function( newText ) {
-			this.bottomText.text(newText);
+			this.bottomText.find('tspan').text(newText);
 		},
 
 		/**
@@ -71,6 +85,22 @@
 			this._formatDataAttribute( this.neckGlass, "style", variables );
 		},
 
+		_updateTextColour: function( newColour ) {
+			this.options.textColour = newColour;
+			var variables = { textColour: this.options.textColour };
+			this._formatDataAttribute( this.topText, "style", variables );
+			this._formatDataAttribute( this.bottomText, "style", variables );
+		},
+		
+		_updateTickColour: function( newColour ) {
+			this.options.tickColour = newColour;
+			var variables = { tickColour: this.options.tickColour };
+			var self = this;
+			this.ticks.find('rect').each( function(indx,tick) {
+				self._formatDataAttribute( tick, "style", variables );
+			} );
+		},
+		
 		_setupSVGLinks: function() {
 			// This is all a bit magic, but these numbers come
 			// from the SVG itself and so this will only work with
@@ -86,10 +116,11 @@
 			this.liquidTop = $('#LiquidTop path');
 			this.neckLiquid = $('#NeckLiquid path');
 			this.bowlLiquid = $('#BowlLiquid path');
-			this.topText = $('#topText');
-			this.bottomText = $('#bottomText');
+			this.topText = $('#TopText');
+			this.bottomText = $('#BottomText');
 			this.bowlGlass = $('#BowlGlass');
 			this.neckGlass = $('#NeckGlass');
+			this.ticks = $('#Ticks');
 		},
 
 		_create: function() {
@@ -103,8 +134,6 @@
 
 				// Scale the SVG to the options provided.
 				var svg = $(this).find("svg");
-				var width = svg.attr("width");
-				var height = svg.attr("height");
 				svg[0].setAttribute( "preserveAspectRatio", "xMinYMin meet" );
 				svg[0].setAttribute( "viewBox", self.leftOffset+" "+self.topOffset+" 744 600" );
 
@@ -117,6 +146,8 @@
 				self.setTopText( self.options.topText );
 				self.setBottomText( self.options.bottomText );
 				self.setLiquidColour( self.options.liquidColour );
+				self.setTextColour( self.options.textColour );
+				self.setTickColour( self.options.tickColour );
 			} );
 		},
 
@@ -159,7 +190,7 @@
 
 		_formatDataAttribute: function( object, attribute, variables ) {
 			var formatString = $(object).attr("data-"+attribute);
-			for( v in variables ) {
+			for( var v in variables ) {
 				formatString = formatString.replace( new RegExp("%%"+v+"%%", "g"), variables[v] );
 			}
 			$(object).attr(attribute,formatString);
@@ -180,12 +211,14 @@
 			startValue: 0,
 			topText: 8,
 			bottomText: 0,
+			textColour: '#000000',
+			tickColour: '#000000',
 			liquidColour: "#ff0000",
 			animationSpeed: 1000,
 			pathToSVG: "svg/thermo-bottom.svg",
 			valueChanged: undefined
 		}
-	}
+	};
 
 	$.widget( "dd.thermometer", Thermometer );
 

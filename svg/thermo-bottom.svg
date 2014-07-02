@@ -600,11 +600,11 @@
   </g>
   <g
      inkscape:groupmode="layer"
-     id="layer15"
+     id="Ticks"
      inkscape:label="Ticks"
      style="display:inline">
     <rect
-       style="opacity:0.46835447;fill:#000000;fill-opacity:0.29807691;stroke:none"
+       data-style="opacity:0.46835447;fill:%%tickColour%%;fill-opacity:0.29807691;stroke:none"
        id="rect4376"
        width="102.59846"
        height="9.6460085"
@@ -612,7 +612,7 @@
        y="543.75446"
        ry="4.8230042" />
     <rect
-       style="opacity:0.46835447;fill:#000000;fill-opacity:0.29807691;stroke:none"
+       data-style="opacity:0.46835447;fill:%%tickColour%%;fill-opacity:0.29807691;stroke:none"
        id="rect4376-3"
        width="102.59846"
        height="9.6460085"
@@ -620,7 +620,7 @@
        y="381.30688"
        ry="4.8230042" />
     <rect
-       style="opacity:0.46835447;fill:#000000;fill-opacity:0.29807691;stroke:none"
+       data-style="opacity:0.46835447;fill:%%tickColour%%;fill-opacity:0.29807691;stroke:none"
        id="rect4376-4"
        width="102.59846"
        height="9.6460085"
@@ -628,7 +628,7 @@
        y="218.85933"
        ry="4.8230042" />
     <rect
-       style="opacity:0.46835447;fill:#000000;fill-opacity:0.29807691;stroke:none"
+       data-style="opacity:0.46835447;fill:%%tickColour%%;fill-opacity:0.29807691;stroke:none"
        id="rect4376-40"
        width="45.599316"
        height="9.6460085"
@@ -636,7 +636,7 @@
        y="503.14258"
        ry="4.8230042" />
     <rect
-       style="opacity:0.46835447;fill:#000000;fill-opacity:0.29807691;stroke:none"
+       data-style="opacity:0.46835447;fill:%%tickColour%%;fill-opacity:0.29807691;stroke:none"
        id="rect4376-40-3"
        width="45.599316"
        height="9.6460085"
@@ -644,7 +644,7 @@
        y="462.53064"
        ry="4.8230042" />
     <rect
-       style="opacity:0.46835447;fill:#000000;fill-opacity:0.29807691;stroke:none"
+       data-style="opacity:0.46835447;fill:%%tickColour%%;fill-opacity:0.29807691;stroke:none"
        id="rect4376-40-9"
        width="45.599316"
        height="9.6460085"
@@ -652,7 +652,7 @@
        y="421.91876"
        ry="4.8230042" />
     <rect
-       style="opacity:0.46835447;fill:#000000;fill-opacity:0.29807691;stroke:none"
+       data-style="opacity:0.46835447;fill:%%tickColour%%;fill-opacity:0.29807691;stroke:none"
        id="rect4376-40-2"
        width="45.599316"
        height="9.6460085"
@@ -660,7 +660,7 @@
        y="340.69501"
        ry="4.8230042" />
     <rect
-       style="opacity:0.46835447;fill:#000000;fill-opacity:0.29807691;stroke:none"
+       data-style="opacity:0.46835447;fill:%%tickColour%%;fill-opacity:0.29807691;stroke:none"
        id="rect4376-40-5"
        width="45.599316"
        height="9.6460085"
@@ -668,7 +668,7 @@
        y="300.08313"
        ry="4.8230042" />
     <rect
-       style="opacity:0.46835447;fill:#000000;fill-opacity:0.29807691;stroke:none"
+       data-style="opacity:0.46835447;fill:%%tickColour%%;fill-opacity:0.29807691;stroke:none"
        id="rect4376-40-7"
        width="45.599316"
        height="9.6460085"
@@ -683,7 +683,7 @@
      style="display:inline">
     <text
        xml:space="preserve"
-       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       data-style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:%%textColour%%;fill-opacity:1;stroke:none;font-family:Sans"
        x="574.37592"
        y="562.16962"
        id="BottomText"
@@ -694,7 +694,7 @@
          y="562.16962">Bottom</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       data-style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:%%textColour%%;fill-opacity:1;stroke:none;font-family:Sans"
        x="578.41888"
        y="233.08215"
        id="TopText"
