@@ -106,7 +106,7 @@
 				var width = svg.attr("width");
 				var height = svg.attr("height");
 				svg[0].setAttribute( "preserveAspectRatio", "xMinYMin meet" );
-				svg[0].setAttribute( "viewBox", self.leftOffset+" "+self.topOffset+" "+width+" "+height );
+				svg[0].setAttribute( "viewBox", self.leftOffset+" "+self.topOffset+" 744 600" );
 
 				svg.attr("width",  self.options.width );
 				svg.attr("height", self.options.height );
