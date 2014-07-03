@@ -155,6 +155,10 @@
 				self.setLiquidColour( self.options.liquidColour );
 				self.setTextColour( self.options.textColour );
 				self.setTickColour( self.options.tickColour );
+				
+				if( self.options.onLoad ) {
+					self.options.onLoad();
+				}
 			} );
 		},
 
@@ -223,7 +227,8 @@
 			liquidColour: "#ff0000",
 			animationSpeed: 1000,
 			pathToSVG: "svg/thermo-bottom.svg",
-			valueChanged: undefined
+			valueChanged: undefined,
+			onLoad: undefined
 		}
 	};
 

@@ -4,6 +4,10 @@ jquery.thermometer
 An SVG thermometer for jQuery that provides programmatic control of the
 temperature.
 
+You can see demos of it's functionality at my website:
+
+[http://david.dupplaw.me.uk/developer/jquery-thermometer](http://david.dupplaw.me.uk/developer/jquery-thermometer)
+
 Installation
 ------------
 
@@ -37,10 +41,13 @@ Options
 | startValue    | Decimal       | Sets the initial temperature of the thermometer |  0      |
 | topText       | String        | The text at the top of the temperature scale    |  "8"    |
 | bottomText    | String        | The text at the bottom of the temperature scale |  "0"    |
+| textColour    | String        | The colour of the text on the temperature scale | #000000 |
+| tickColour    | String        | The colour of the ticks on the temperature scale | #000000 |
 | liquidColour  | #dddddd or fn | Colour of the liquid or fn to return colour     | #ff0000 |
 | animationSpeed | Integer      | Time in milliseconds for the liquid to move     | 1000    |
 | pathToSVG     | String        | If you need to store the SVG in another place   | "svg/thermo-bottom.svg" |
 | valueChanged  | fn            | Callback for when the temperature has changed   | undefined |
+| onLoad        | fn            | Callback for when the widget has fully loaded   | undefined |
 
 To set the options simply pass them in as an object to the constructor:
 
