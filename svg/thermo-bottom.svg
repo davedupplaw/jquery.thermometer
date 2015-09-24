@@ -337,15 +337,6 @@
        id="linearGradient4288"
        xlink:href="#linearGradient4265-6"
        inkscape:collect="always" />
-    <filter
-       inkscape:collect="always"
-       id="filter4369">
-      <feBlend
-         inkscape:collect="always"
-         mode="multiply"
-         in2="BackgroundImage"
-         id="feBlend4371" />
-    </filter>
   </defs>
   <sodipodi:namedview
      id="base"
