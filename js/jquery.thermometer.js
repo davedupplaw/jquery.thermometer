@@ -183,8 +183,8 @@
 
 
 			var variables = [];
-			variables["liquidY"] = this.liquidBottomY - value * (this.liquidBottomY - this.liquidTopY) / (this.options.maxValue - this.options.minValue);
-			variables["neckPosition"] = value * (this.neckBottomY - this.neckTopY) / (this.options.maxValue - this.options.minValue) + this.neckMinSize;
+			variables["liquidY"] = this.liquidBottomY - (value - this.options.minValue) * (this.liquidBottomY - this.liquidTopY) / (this.options.maxValue - this.options.minValue);
+			variables["neckPosition"] = (value - this.options.minValue) * (this.neckBottomY - this.neckTopY) / (this.options.maxValue - this.options.minValue) + this.neckMinSize;
 			variables["boxPosition"] = this.neckBottomY - variables["neckPosition"];
 
 			// Move the oval representing the top of the liquid
