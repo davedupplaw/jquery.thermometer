@@ -4,7 +4,7 @@ jquery.thermometer
 An SVG thermometer for jQuery that provides programmatic control of the
 temperature.
 
-You can see demos of it's functionality at my website:
+You can see demos of its functionality at my website:
 
 [http://david.dupplaw.me.uk/developer/jquery-thermometer](http://david.dupplaw.me.uk/developer/jquery-thermometer)
 
